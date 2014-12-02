@@ -1,0 +1,73 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context=".Home">
+
+    <Button
+        android:id="@+id/button_activity_indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="34dp"
+        android:text="Rotation Debug Indicator"
+        android:onClick="OpenGameRotationSensorTestActivity"/>
+
+    <Button
+        android:id="@+id/button_activity_sensor_test"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button_activity_indicator"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:text="Sensor Test"
+        android:onClick="OpenSensorTestActivity"/>
+
+    <TextView
+        android:id="@+id/text_ipPortHelpText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/button_activity_sensor_test"
+        android:layout_below="@+id/button_activity_sensor_test"
+        android:layout_marginTop="17dp"
+        android:text="@string/text_home_ipPortHint" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/port"
+        android:layout_marginTop="16dp"
+        android:text="Mouse Controller"
+        android:onClick="OpenMouseControllerActivity"/>
+
+    <EditText
+        android:id="@+id/port"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/ip"
+        android:layout_alignBottom="@+id/ip"
+        android:layout_alignParentRight="true"
+        android:layout_toRightOf="@+id/ip"
+        android:ems="4"
+        android:text="4445"/>
+
+    <EditText
+        android:id="@+id/ip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/button3"
+        android:layout_below="@+id/text_ipPortHelpText"
+        android:ems="12"
+        android:text="192.168.1.104">
+        <requestFocus />
+    </EditText>
+
+</RelativeLayout>
