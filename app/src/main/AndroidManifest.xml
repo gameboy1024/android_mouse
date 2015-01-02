@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.sunbotu.androidmouse" >
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@android:style/Theme.Holo.NoActionBar">
+        <activity
+            android:name=".activities.HomeActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activities.ControllerActivity"
+            android:label="@string/title_activity_mouse_controller" android:parentActivityName=".activities.HomeActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.sunbotu.androidmouse.activities.HomeActivity" />
+        </activity>
+        <activity
+            android:name=".activities.SensorsTestActivity"
+
+            android:label="@string/title_activity_sensors_test"
+            android:parentActivityName=".activities.HomeActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.sunbotu.androidmouse.activities.HomeActivity"/>
+        </activity>
+    </application>
+
+</manifest>
