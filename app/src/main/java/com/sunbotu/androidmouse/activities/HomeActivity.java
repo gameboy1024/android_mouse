@@ -29,7 +29,7 @@ public class HomeActivity extends Activity {
         serverIpTextView = (TextView) findViewById(R.id.ip);
         serverPortTextView = (TextView) findViewById(R.id.port);
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
-        serverIpTextView.setText(pref.getString(PREF_IP, "192.168.1.104"));
+        serverIpTextView.setText(pref.getString(PREF_IP, "192.168.1.100"));
         serverPortTextView.setText(pref.getString(PREF_PORT, "4445"));
     }
 
@@ -47,10 +47,7 @@ public class HomeActivity extends Activity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
+        return id == R.id.action_settings || super.onOptionsItemSelected(item);
     }
 
     public void OpenSensorTestActivity(View view) {

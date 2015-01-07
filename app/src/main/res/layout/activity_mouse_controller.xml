@@ -65,7 +65,7 @@
     <Button
         android:id="@+id/mouse_control_enable"
         android:layout_width="wrap_content"
-        android:layout_height="60dp"
+        android:layout_height="80dp"
         android:layout_marginTop="5dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
@@ -75,7 +75,7 @@
     <Button
         android:id="@+id/mouse_control_enable_toggle"
         android:layout_width="wrap_content"
-        android:layout_height="60dp"
+        android:layout_height="80dp"
         android:layout_marginTop="5dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
