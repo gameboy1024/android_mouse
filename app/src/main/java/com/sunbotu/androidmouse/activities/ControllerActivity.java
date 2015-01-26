@@ -16,7 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.sunbotu.androidmouse.R;
-import com.sunbotu.androidmouse.utils.MouseController;
+import com.sunbotu.androidmouse.utils.RemoteController;
 import com.sunbotu.androidmouse.utils.SocketConnector;
 
 import java.util.concurrent.ExecutionException;
@@ -40,7 +40,7 @@ public class ControllerActivity extends Activity {
     private boolean toggleEnabled = true;
     private boolean controlling = false;
 
-    private MouseController controller;
+    private RemoteController controller;
     private String ip, port;
 
     private SocketConnector connector;
@@ -53,7 +53,7 @@ public class ControllerActivity extends Activity {
         super.onCreate(savedInstanceState);
         //Remove title bar
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.activity_mouse_controller);
+        setContentView(R.layout.activity_remote_controller);
 
         this.ip = getIntent().getStringExtra("ip");
         this.port = getIntent().getStringExtra("port");
@@ -61,7 +61,7 @@ public class ControllerActivity extends Activity {
         setupConnection();
         getViews();
         preferences = PreferenceManager.getDefaultSharedPreferences(this);
-        controller = new MouseController(
+        controller = new RemoteController(
                 (SensorManager) this.getSystemService(Context.SENSOR_SERVICE),
                 connector);
         setSeekBarListeners();
@@ -100,7 +100,7 @@ public class ControllerActivity extends Activity {
     }
 
     private void setSeekBarListeners() {
-        int progress = preferences.getInt(PREF_SENSIBILITY, MouseController.INIT_SENSIBILITY);
+        int progress = preferences.getInt(PREF_SENSIBILITY, RemoteController.INIT_SENSIBILITY);
         sensibilitySeekBar.setProgress(progress);
         controller.setSensibility(progress);
         sensibilitySeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {

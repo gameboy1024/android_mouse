@@ -6,15 +6,19 @@ import android.hardware.SensorManager;
  * This class is responsible for control modules (like RotationSensor).
  * Created by sbt on 11/6/14.
  */
-public class MouseController {
+public class RemoteController {
 
     public static final int INIT_SENSIBILITY = 50;
 
+    public enum State {IDLE, CONTROLLING}
+
+    ;
+    private State state = State.IDLE;
     private RotationSensor rotationSensor;
     private SocketConnector connector;
     private int sensibility;
 
-    public MouseController(SensorManager sensorManager, SocketConnector connector) {
+    public RemoteController(SensorManager sensorManager, SocketConnector connector) {
         this.connector = connector;
         rotationSensor = new RotationSensor(this, sensorManager);
         sensibility = INIT_SENSIBILITY;
@@ -26,10 +30,16 @@ public class MouseController {
 
     public void startCursorControl() {
         rotationSensor.resume();
+        state = State.CONTROLLING;
     }
 
     public void stopCursorControl() {
         rotationSensor.stop();
+        state = State.IDLE;
+    }
+
+    public boolean isControlling() {
+        return state == State.CONTROLLING;
     }
 
     public void clickLeftDown() {
@@ -52,4 +62,9 @@ public class MouseController {
         connector.sendMessage(
                 MessageGenerator.location(-z * 2 * sensibility, -x * 1.2f * sensibility));
     }
+
+    public void move(int x, int y) {
+        connector.sendMessage(MessageGenerator.move(x, y));
+    }
+
 }

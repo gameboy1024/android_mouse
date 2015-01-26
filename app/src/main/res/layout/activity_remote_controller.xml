@@ -48,15 +48,15 @@
         android:layout_marginTop="40dp">
 
         <Button
-            android:layout_width="170dp"
+            android:layout_width="250dp"
             android:layout_height="100dp"
             android:text="Left Click"
             android:id="@+id/btn_click_left"/>
 
         <Button
-            android:layout_width="170dp"
+            android:layout_width="100dp"
             android:layout_height="100dp"
-            android:text="Right Click"
+            android:text="Right"
             android:id="@+id/btn_click_right"
             android:layout_toRightOf="@+id/btn_click_left"
             android:layout_alignTop="@+id/btn_click_left"/>

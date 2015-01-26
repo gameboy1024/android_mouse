@@ -13,13 +13,13 @@ public class RotationSensor {
     private float x0, y0, z0;
     private boolean resetAnchor;
     private float x, y, z;
-    private MouseController controller;
+    private RemoteController controller;
     private SensorManager sensorManager;
     private Sensor sensorGameRotation;
     private SensorEventListener lsnGameRotation;
 
 
-    public RotationSensor(MouseController controller, SensorManager sensorManager) {
+    public RotationSensor(RemoteController controller, SensorManager sensorManager) {
         this.controller = controller;
         this.sensorManager = sensorManager;
         resetAnchor = true;
@@ -36,6 +36,7 @@ public class RotationSensor {
                     y0 = e.values[SensorManager.DATA_Y];
                     z0 = e.values[SensorManager.DATA_Z];
                     resetAnchor = false;
+                    return;
                 }
                 x = e.values[SensorManager.DATA_X];
                 y = e.values[SensorManager.DATA_Y];

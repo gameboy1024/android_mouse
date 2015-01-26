@@ -4,7 +4,7 @@ package com.sunbotu.androidmouse.utils;
  * Created by sbt on 11/6/14.
  */
 public class MessageGenerator {
-
+    // Mouse control
     final static String MOUSE_LEFT_BTN_DOWN = "LD";
     final static String MOUSE_LEFT_BTN_UP = "LU";
     final static String MOUSE_RIGHT_BTN_DOWN = "RD";
@@ -12,6 +12,8 @@ public class MessageGenerator {
     final static String MOUSE_MIDDLE_BTN_DOWN = "MD";
     final static String MOUSE_MIDDLE_BTN_UP = "MU";
     final static String LOCATION = "XY";
+    // Keyboard control
+    final static String MOVE = "MV";
 
     final static String SEPARATOR = "_";
 
@@ -40,6 +42,10 @@ public class MessageGenerator {
     }
 
     public static String location(float x, float y) {
-        return LOCATION + SEPARATOR + Float.valueOf(x) + SEPARATOR + Float.valueOf(y);
+        return LOCATION + SEPARATOR + String.valueOf(x) + SEPARATOR + String.valueOf(y);
+    }
+
+    public static String move(int x, int y) {
+        return MOVE + SEPARATOR + String.valueOf(x) + SEPARATOR + String.valueOf(y);
     }
 }

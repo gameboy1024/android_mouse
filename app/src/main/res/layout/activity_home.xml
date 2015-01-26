@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/home_icon"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="40dp"
         android:src="@drawable/gyroscope"/>
 
     <TextView
@@ -23,18 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/home_icon"
         android:layout_marginTop="50dp"
-        android:text="@string/text_home_ipPortHint" />
-
-    <Button
-        android:id="@+id/button_mouse_controller"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/port"
-        android:layout_marginTop="16dp"
-        android:text="Mouse Controller"
-        android:onClick="OpenMouseControllerActivity"/>
+        android:text="@string/text_home_ipPortHint"/>
 
     <EditText
         android:id="@+id/port"
@@ -62,8 +51,31 @@
         android:inputType="number"
         android:digits="0123456789."
         android:singleLine="true">
-        <requestFocus />
+
+        <requestFocus/>
     </EditText>
+
+    <Button
+        android:id="@+id/button_mouse_controller"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/port"
+        android:layout_marginTop="16dp"
+        android:text="Mouse Controller"
+        android:onClick="OpenMouseControllerActivity"/>
+
+    <Button
+        android:id="@+id/button_3d_controller"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/button_mouse_controller"
+        android:layout_marginTop="16dp"
+        android:text="3D Controller"
+        android:onClick="Open3DControllerActivity"/>
 
     <Button
         android:id="@+id/button_activity_sensor_test"
@@ -71,11 +83,10 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
-        android:layout_below="@+id/button_mouse_controller"
+        android:layout_below="@+id/button_3d_controller"
         android:layout_marginTop="20dp"
         android:text="Sensor Test"
         android:onClick="OpenSensorTestActivity"/>
-
 
 
 </RelativeLayout>

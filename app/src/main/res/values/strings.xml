@@ -6,5 +6,7 @@
     <string name="title_activity_mouse_controller">Mouse Controller</string>
     <string name="title_activity_sensors_test">SensorsTestActivity</string>
     <string name="text_home_ipPortHint">Please enter the IP address and port number of the PC server.</string>
+    <string name="title_activity_controller3_d">3D Controller</string>
+    <string name="hello_world">Hello world!</string>
 
 </resources>
