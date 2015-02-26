@@ -40,27 +40,20 @@
         android:layout_alignParentEnd="true"/>
 
     <com.sunbotu.androidmouse.joystick.JoystickView
-        android:id="@+id/view_joystick"
-        android:layout_width="400px"
-        android:layout_height="400px"
+        android:id="@+id/view_joystick_rotate"
+        android:layout_width="500px"
+        android:layout_height="450px"
         android:layout_below="@id/seekBar_sensibility"
+        android:layout_marginTop="100px"/>
+
+    <com.sunbotu.androidmouse.joystick.JoystickView
+        android:id="@+id/view_joystick_move"
+        android:layout_width="550px"
+        android:layout_height="450px"
+        android:layout_below="@id/seekBar_sensibility"
+        android:layout_toRightOf="@id/view_joystick_rotate"
         android:layout_marginTop="100px"
         android:layout_centerHorizontal="true"/>
 
-    <TextView
-        android:id="@+id/text_x"
-        android:text="X:"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/view_joystick"
-        android:textSize="50dp"/>
-
-    <TextView
-        android:id="@+id/text_y"
-        android:text="Y:"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/text_x"
-        android:textSize="50dp"/>
 
 </RelativeLayout>

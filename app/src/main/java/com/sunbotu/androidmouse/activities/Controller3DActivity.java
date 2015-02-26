@@ -15,7 +15,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.sunbotu.androidmouse.R;
-import com.sunbotu.androidmouse.joystick.JoystickClickListener;
 import com.sunbotu.androidmouse.joystick.JoystickMoveListener;
 import com.sunbotu.androidmouse.joystick.JoystickView;
 import com.sunbotu.androidmouse.utils.RemoteController;
@@ -31,8 +30,8 @@ public class Controller3DActivity extends Activity {
     private SeekBar sensibilitySeekBar;
 
     private TextView txtX, txtY;
-    private JoystickView joystick;
-    private JoystickMoveListener listener;
+    private JoystickView joystick_move;
+    private JoystickView joystick_rotate;
 
     private RemoteController controller;
     private String ip, port;
@@ -56,8 +55,8 @@ public class Controller3DActivity extends Activity {
                 (SensorManager) this.getSystemService(Context.SENSOR_SERVICE),
                 connector);
         setSeekBarListeners();
-        joystick.setOnJoystickMovedListener(getMoveListener());
-        joystick.setOnJoystickClickedListener(getClickListener());
+        joystick_move.setOnJoystickMovedListener(getMoveMoveListener());
+        joystick_rotate.setOnJoystickMovedListener(getRotateMoveListener());
     }
 
     private void getViews() {
@@ -66,9 +65,10 @@ public class Controller3DActivity extends Activity {
         statusTextView = (TextView) findViewById(R.id.control_status);
         statusTextView.setText("Not controlling");
         sensibilitySeekBar = (SeekBar) findViewById(R.id.seekBar_sensibility);
-        txtX = (TextView) findViewById(R.id.text_x);
-        txtY = (TextView) findViewById(R.id.text_y);
-        joystick = (JoystickView) findViewById(R.id.view_joystick);
+//        txtX = (TextView) findViewById(R.id.text_x);
+//        txtY = (TextView) findViewById(R.id.text_y);
+        joystick_move = (JoystickView) findViewById(R.id.view_joystick_move);
+        joystick_rotate = (JoystickView) findViewById(R.id.view_joystick_rotate);
     }
 
     private void setSeekBarListeners() {
@@ -139,7 +139,7 @@ public class Controller3DActivity extends Activity {
         Log.i("Mainflow", "Socket connected...");
     }
 
-    private JoystickMoveListener getMoveListener() {
+    private JoystickMoveListener getMoveMoveListener() {
         return new JoystickMoveListener() {
             @Override
             public void OnMoved(int x, int y) {
@@ -147,35 +147,38 @@ public class Controller3DActivity extends Activity {
                     controller.startCursorControl();
                 }
                 controller.move(x, -y);
-                txtX.setText(Integer.toString(x));
-                txtY.setText(Integer.toString(y));
+                statusTextView.setText("Controlling");
             }
 
             @Override
             public void OnReleased() {
-
             }
 
             @Override
             public void OnReturnedToCenter() {
                 controller.stopCursorControl();
-                txtX.setText("stopped");
-                txtY.setText("stopped");
+                statusTextView.setText("Not controlling");
             }
         };
     }
 
-    private JoystickClickListener getClickListener() {
-        return new JoystickClickListener() {
+    private JoystickMoveListener getRotateMoveListener() {
+        return new JoystickMoveListener() {
             @Override
-            public void OnClicked() {
+            public void OnMoved(int x, int y) {
+                controller.rotate(x, -y);
+                statusTextView.setText("Controlling");
             }
 
             @Override
             public void OnReleased() {
-                controller.stopCursorControl();
-                txtX.setText("released");
-                txtY.setText("released");
+                controller.stopRotating();
+            }
+
+            @Override
+            public void OnReturnedToCenter() {
+                controller.stopRotating();
+                statusTextView.setText("Not controlling");
             }
         };
     }

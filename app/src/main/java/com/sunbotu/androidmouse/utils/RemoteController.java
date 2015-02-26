@@ -29,11 +29,14 @@ public class RemoteController {
     }
 
     public void startCursorControl() {
+        connector.sendMessage(MessageGenerator.startCursorControl());
         rotationSensor.resume();
         state = State.CONTROLLING;
+
     }
 
     public void stopCursorControl() {
+        connector.sendMessage(MessageGenerator.stopCursorControl());
         rotationSensor.stop();
         state = State.IDLE;
     }
@@ -59,8 +62,18 @@ public class RemoteController {
     }
 
     public void updateLocation(float x, float y, float z) {
+//        connector.sendMessage(
+//                MessageGenerator.location(-z * 2 * sensibility, -x * 1.2f * sensibility));
         connector.sendMessage(
-                MessageGenerator.location(-z * 2 * sensibility, -x * 1.2f * sensibility));
+            MessageGenerator.location(x * sensibility, y * sensibility, z * sensibility));
+    }
+
+    public void rotate(float x, float y) {
+        connector.sendMessage(MessageGenerator.rotate(x, y));
+    }
+
+    public void stopRotating() {
+        connector.sendMessage(MessageGenerator.stopRotating());
     }
 
     public void move(int x, int y) {

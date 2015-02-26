@@ -12,6 +12,10 @@ public class MessageGenerator {
     final static String MOUSE_MIDDLE_BTN_DOWN = "MD";
     final static String MOUSE_MIDDLE_BTN_UP = "MU";
     final static String LOCATION = "XY";
+    final static String CURSOR_START = "C1";
+    final static String CURSOR_STOP = "C2";
+    final static String ROTATE = "RT";
+    final static String ROTATE_STOP = "R0";
     // Keyboard control
     final static String MOVE = "MV";
 
@@ -41,8 +45,24 @@ public class MessageGenerator {
         return MOUSE_MIDDLE_BTN_UP;
     }
 
-    public static String location(float x, float y) {
-        return LOCATION + SEPARATOR + String.valueOf(x) + SEPARATOR + String.valueOf(y);
+    public static String location(float x, float y, float z) {
+        return LOCATION + SEPARATOR + String.valueOf(x) + SEPARATOR + String.valueOf(y) + SEPARATOR + String.valueOf(z);
+    }
+
+    public static String rotate(float x, float y) {
+        return ROTATE + SEPARATOR + String.valueOf(x) + SEPARATOR + String.valueOf(y);
+    }
+
+    public static String stopRotating() {
+        return ROTATE_STOP;
+    }
+
+    public static String startCursorControl() {
+        return CURSOR_START;
+    }
+
+    public static String stopCursorControl() {
+        return CURSOR_STOP;
     }
 
     public static String move(int x, int y) {
