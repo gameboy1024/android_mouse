@@ -11,6 +11,7 @@ public class MessageGenerator {
     final static String MOUSE_RIGHT_BTN_UP = "RU";
     final static String MOUSE_MIDDLE_BTN_DOWN = "MD";
     final static String MOUSE_MIDDLE_BTN_UP = "MU";
+    final static String MOUSE_LEFT_CLICK = "LC";
     final static String LOCATION = "XY";
     final static String CURSOR_START = "C1";
     final static String CURSOR_STOP = "C2";
@@ -43,6 +44,10 @@ public class MessageGenerator {
 
     public static String mouseMiddleBtnUp() {
         return MOUSE_MIDDLE_BTN_UP;
+    }
+
+    public static String mouseLeftClick() {
+        return MOUSE_LEFT_CLICK;
     }
 
     public static String location(float x, float y, float z) {

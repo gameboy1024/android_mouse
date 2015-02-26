@@ -61,6 +61,8 @@ public class RemoteController {
         connector.sendMessage(MessageGenerator.mouseRightBtnUp());
     }
 
+    public void clickLeft() { connector.sendMessage(MessageGenerator.mouseLeftClick()); }
+
     public void updateLocation(float x, float y, float z) {
 //        connector.sendMessage(
 //                MessageGenerator.location(-z * 2 * sensibility, -x * 1.2f * sensibility));

@@ -49,13 +49,13 @@
 
         <Button
             android:layout_width="270dp"
-            android:layout_height="200dp"
+            android:layout_height="180dp"
             android:text="Left Click"
             android:id="@+id/btn_click_left"/>
 
         <Button
             android:layout_width="80dp"
-            android:layout_height="200dp"
+            android:layout_height="180dp"
             android:text="Right"
             android:id="@+id/btn_click_right"
             android:layout_toRightOf="@+id/btn_click_left"

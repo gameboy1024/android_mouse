@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/home_icon"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="20dp"
         android:src="@drawable/gyroscope"/>
 
     <TextView
@@ -22,7 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/home_icon"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         android:text="@string/text_home_ipPortHint"/>
 
     <EditText
@@ -62,7 +62,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
         android:layout_below="@+id/port"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="12dp"
         android:text="Mouse Controller"
         android:onClick="OpenMouseControllerActivity"/>
 
@@ -73,9 +73,20 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
         android:layout_below="@+id/button_mouse_controller"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="12dp"
         android:text="3D Controller"
         android:onClick="Open3DControllerActivity"/>
+
+    <Button
+        android:id="@+id/button_3d_game_controller"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/button_3d_controller"
+        android:layout_marginTop="12dp"
+        android:text="3D Game Controller"
+        android:onClick="Open3DGameControllerActivity"/>
 
     <Button
         android:id="@+id/button_activity_sensor_test"
@@ -83,10 +94,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
-        android:layout_below="@+id/button_3d_controller"
-        android:layout_marginTop="20dp"
+        android:layout_below="@+id/button_3d_game_controller"
+        android:layout_marginTop="12dp"
         android:text="Sensor Test"
         android:onClick="OpenSensorTestActivity"/>
-
-
 </RelativeLayout>

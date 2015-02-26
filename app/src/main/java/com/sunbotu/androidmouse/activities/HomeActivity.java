@@ -77,6 +77,17 @@ public class HomeActivity extends Activity {
         startActivity(intent);
     }
 
+    public void Open3DGameControllerActivity(View view) {
+        Intent intent = new Intent(this, GameControllerActivity.class);
+        // TODO: valid text before invoking...
+        String ip = serverIpTextView.getText().toString();
+        String port = serverPortTextView.getText().toString();
+        intent.putExtra("ip", ip);
+        intent.putExtra("port", port);
+        saveConnectionInfo(ip, port);
+        startActivity(intent);
+    }
+
     private void saveConnectionInfo(String ip, String port) {
         PreferenceManager.getDefaultSharedPreferences(this).edit()
             .putString(PREF_IP, ip)
